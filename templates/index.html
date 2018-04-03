@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Team
+{% endblock %}
+
+{% block main %}
+
+  <H1>OUR TEAM'S ALL TIME STATS</H1>
+
+<div id="donut1" style ="float:left; width: 50%;"></div>
+<div id="donut2" style ="float:left; width: 50%;"></div>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>WO 1</th>
+                <th>WO 2</th>
+                <th>WO 3</th>
+                <th>Throws</th>
+                <th>Play</th>
+                <th>Cardio</th>
+                <th>Roll</th>
+                <th>PushUp</th>
+                <th>Abs</th>
+                <th>Arms</th>
+                <th>Squats</th>
+                <th>Leg</th>
+                <th>SLDL</th>
+                <th>PullUp</th>
+                <th>Jump</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in stats %}
+                <tr>
+                    <td>{{ stat.name }}</td>
+                    <td>{{ stat.w1 }}</td>
+                    <td>{{ stat.w2 }}</td>
+                    <td>{{ stat.w3 }}</td>
+                    <td>{{ stat.throw }}</td>
+                    <td>{{ stat.play }}</td>
+                    <td>{{ stat.cardio }}</td>
+                    <td>{{ stat.roll }}</td>
+                    <td>{{ stat.pushups }}</td>
+                    <td>{{ stat.abs }}</td>
+                    <td>{{ stat.arms }}</td>
+                    <td>{{ stat.squats }}</td>
+                    <td>{{ stat.resistanceleg }}</td>
+                    <td>{{ stat.sldl }}</td>
+                    <td>{{ stat.pullup }}</td>
+                    <td>{{ stat.jump }}</td>
+
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+<script>
+Morris.Donut({
+  element: 'donut1',
+  data: [
+    {label: "Throwing sessions", value: '{{ totals[0]["throw"] }}' },
+  ],
+  colors: [
+    '#DA70D6',
+
+  ]
+});
+Morris.Donut({
+  element: 'donut2',
+  data: [
+   {label: "Push Ups", value: '{{ totals[0]["pushups"] }}' },
+   {label: "Pull Ups", value: '{{ totals[0]["pullup"] }}' },
+   {label: "Single Leg Deadlifts", value: '{{ totals[0]["sldl"] }}' },
+  ],
+  colors: [
+    '#4169E1',
+    '#AFEEEE',
+    '#DDA0DD',
+  ]
+});
+
+
+</script>
+{% endblock %}
