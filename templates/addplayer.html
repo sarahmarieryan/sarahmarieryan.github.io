@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+<!-- add player to dropdown boxes and empty value in table-->
+
+{% block title %}
+    Add player
+{% endblock %}
+
+{% block main %}
+
+     <form action="/addplayer" method="post">
+     <div class="form-group ">
+      <label class="control-label " for="name">
+       Name
+      </label>
+      <input class="form-control" id="name" name="name" type="text"/>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary" name="submit" type="submit">
+        Add Player
+       </button>
+      </div>
+     </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout 3
+{% endblock %}
+
+{% block main %}
+<body style="background-color:lightsalmon;">
+<h3>Workout 3: Running, Balance and Core Circuits</h3>
+
+<p style="text-align:left;">
+<b>Tempo Run</b><br>
+60 seconds run hard (at mile pace or faster), 30 seconds jog (x6) <br>
+30 seconds run hard (at 800 meter pace or faster. Almost a sprint), 30 seconds jog (x8) <br>
+15 seconds sprint (ALL OUT SPEED!), jog 45 seconds (x8)<br>
+<br>
+<b>Balance Circuit</b><br>
+<i>All exercises run stright into the next, so see if you can keep one foot up the entire time!</i>
+Balance on 1 leg 30 seconds<br>
+50 calf raises on that same leg<br>
+Single leg deadlift x6 on the same side <br>
+Switch and repeat x 2 each side <br>
+<br>
+<b>Core Circuit</b><br>
+30 seconds crunches<br>
+30 seconds plank<br>
+30 Seconds mtn climber<br>
+Entire set X3 with 30 seconds rest between each set<br>
+<br>
+<b>Cool Down</b><br>
+5 min dynamic stretching, rolling, or yoga<br>
+<i>Do not stop skip stretching, it will lead to tightness and injury</i>
+</body>
+</p>
+
+<!-- dropdown form -->
+     <form action="/logwo3" method="post">
+      <div class="form-group ">
+      <label class="control-label " for="person">
+       Pick a player
+      </label>
+      <select class="select form-control" id="person" name="person">
+       </option>
+       {% for player in players %}
+        <option value="{{ player.name }}">
+        {{ player.name }}
+       </option>
+       {% endfor %}
+      </select>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary" name="submit" type="submit">
+        I completed workout 3
+       </button>
+      </div>
+     </div>
+    </form>
+
+{% endblock %}

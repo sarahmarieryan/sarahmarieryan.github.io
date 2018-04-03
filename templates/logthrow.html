@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Throw
+{% endblock %}
+
+{% block main %}
+<body style="background-color: mediumseagreen;">
+<h3>Throwing Session</h3>
+<p style="text-align:left;">
+<b>Warm Up</b><br>
+5 minute jog <br>
+<br>
+<b>Throwing</b><br>
+Complete 10 backhands and 10 forehands in a row. However long it takes!<br>
+Complete 25 backhands at a farther distance than is comfortable.<br>
+Complete 25 forehandss at a farther distance than is comfortable.<br>
+Complete 10 backhands and forehands with a lower release than is comfortable (drop your hand lower and release low!)<br>
+Get funky with it! practice all of these throws again but with O/I and I/O angles. If it is windy, try throwing upwind/downwind/crosswind.<br>
+Be sure you are taking a step out with your throws and practice some fakes!
+<br>
+
+</body>
+</p>
+     <form action="/logthrow" method="post">
+      <div class="form-group ">
+      <label class="control-label " for="person">
+       Pick a player
+      </label>
+      <select class="select form-control" id="person" name="person">
+       </option>
+       {% for player in players %}
+        <option value="{{ player.name }}">
+        {{ player.name }}
+       </option>
+       {% endfor %}
+      </select>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary" name="submit" type="submit">
+        I threw today!
+       </button>
+      </div>
+     </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout 1
+{% endblock %}
+
+{% block main %}
+<body style="background-color:plum;">
+<h3>Workout 1: lift, No weights required</h3>
+
+<p style="text-align:left;">
+<b>Warm Up</b><br>
+7 minutes of cardio + dynamic warmup like at practice<br>
+3 minutes of body rolling (use a foam roller or a nalgene)<br>
+<br>
+<b>Set 1</b><br>
+SL glute bridges (3x10/side)<br>
+Bear crawl (3x8/side)<br>
+<br>
+<b>Set 2</b><br>
+SL pistol squat (3x8/side)<br>
+Push-up (3x8)<br>
+<br>
+<b>Set 3</b><br>
+Lateral band walk (3x10 yds/side)<br>
+Dips (3x10)<br>
+<br>
+<b>Set 4</b><br>
+Clam shells (3x15/side)<br>
+Front plank (3x45s)<br>
+Side plank (3x30s/side)<br>
+<br>
+<b>Cool Down</b><br>
+5-10 mins of something that gets you out of breath<br>
+Balance with eyes closed 1 min/side<br>
+Stretch/roll<br>
+
+</body>
+</p>
+
+
+     <form action="/logwo1" method="post">
+      <div class="form-group ">
+      <label class="control-label " for="person">
+       Pick a player
+      </label>
+      <select class="select form-control" id="person" name="person">
+       </option>
+       {% for player in players %}
+        <option value="{{ player.name }}">
+        {{ player.name }}
+       </option>
+       {% endfor %}
+      </select>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary" name="submit" type="submit">
+        I completed workout 1
+       </button>
+      </div>
+     </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout 2
+{% endblock %}
+
+{% block main %}
+<body style="background-color:paleturquoise;">
+<h3>Workout 2: Running + Throwing</h3>
+
+<p style="text-align:left;">
+<b>Warm Up</b><br>
+10 jog + min dynamic stretching like at the beginning of practice<br>
+<br>
+<b>Sprinting</b><br>
+4 x 200 yds sprint with a 45 second break between sprints<br>
+Water break <i>*use water breaks to stretch what you need and to recover so your next sprints will be full speed!</i><br>
+8x 50 yd sprint with 30 second break between sprints<br>
+Water break <br>
+4 x 50 yd sprint with 15 second break between sprints<br>
+Water break<br>
+8 x 20 yard sprint with 30 second break between sprints<br>
+<br>
+<b>Throwing</b><br>
+Complete 10 backhands and 10 forehands in a row. However long it takes!<br>
+Complete 25 backhands at a farther distance than is comfortable.<br>
+Complete 25 forehandss at a farther distance than is comfortable.<br>
+Complete 10 backhands and forehands with a lower release than is comfortable (drop your hand lower and release low!)<br>
+<br>
+<b>Cool Down</b><br>
+Stretch/roll what you need<br>
+1 minute of front core<br>
+Balance 1min/side eyes closed<br>
+
+</body>
+</p>
+
+     <form action="/logwo2" method="post">
+      <div class="form-group ">
+      <label class="control-label " for="person">
+       Pick a player
+      </label>
+      <select class="select form-control" id="person" name="person">
+       </option>
+       {% for player in players %}
+        <option value="{{ player.name }}">
+        {{ player.name }}
+       </option>
+       {% endfor %}
+      </select>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary" name="submit" type="submit">
+        I completed workout 2
+       </button>
+      </div>
+     </div>
+    </form>
+
+{% endblock %}

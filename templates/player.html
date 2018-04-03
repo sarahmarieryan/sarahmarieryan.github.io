@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Select Player
+{% endblock %}
+
+{% block main %}
+<!-- dropdown form -->
+    <form action="/player" method="post">
+        <div class="form-group">
+            <div class="form-group ">
+      <label class="control-label " for="person">
+       Pick a player
+      </label>
+      <select class="select form-control" id="person" name="person">
+       </option>
+       {% for player in players %}
+        <option value="{{ player.name }}">
+        {{ player.name }}
+       </option>
+       {% endfor %}
+      </select>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary " name="submit" type="submit">
+        Submit
+       </button>
+      </div>
+     </div>
+    </form>
+{% endblock %}

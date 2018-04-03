@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Team home
+{% endblock %}
+
+{% block main %}
+
+  <H1>OUR TEAM THIS WEEK</H1>
+<!-- acheivement charts -->
+    <div id="donut1" style ="float:left; width: 25%;"></div>
+    <div id="donut2" style ="float:left; width: 25%;"></div>
+    <div id="donut3" style ="float:left; width: 25%;"></div>
+    <div id="donutthrow" style ="float:left; width: 25%;"></div>
+
+<!-- player sums from past week -->
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Workout 1</th>
+                <th>Workout 2</th>
+                <th>Workout 3</th>
+                <th>Throws This Week</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for perfect in perfects %}
+                <tr>
+                    <td>{{ perfect.name }}</td>
+                    <td>{{ perfect.w1 }}</td>
+                    <td>{{ perfect.w2 }}</td>
+                    <td>{{ perfect.w3 }}</td>
+                    <td>{{ perfect.throw }}</td>
+
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+<!-- chart help found http://morrisjs.github.io/morris.js/ -->
+<script>
+Morris.Donut({
+  element: 'donut1',
+  data: [
+    {label: "Did Workout 1: Lift", value: '{{w1week}}' },
+    {label: "Not yet", value: '{{notw1}}' },
+  ],
+  colors: [
+    '#DA70D6',
+    '#DDA0DD',
+  ]
+});
+Morris.Donut({
+  element: 'donut2',
+  data: [
+    {label: "Did Workout 2: Intervals", value: '{{w2week}}' },
+    {label: "Not yet", value: '{{notw2}}'},
+  ],
+  colors: [
+    '#4169E1',
+    '#AFEEEE',
+  ]
+});
+Morris.Donut({
+  element: 'donut3',
+  data: [
+    {label: "Did Workout 3: Core", value: '{{w3week}}' },
+    {label: "Not yet", value: '{{notw3}}'},
+  ],
+  colors: [
+    '#FA8072',
+    '#FFA07A',
+  ]
+});
+Morris.Donut({
+  element: 'donutthrow',
+  data: [
+    {label: "Threw today", value: '{{throwday}}' },
+    {label: "Not yet", value: '{{notthrow}}'},
+  ],
+  colors: [
+    '#0BA462',
+    '#39B580',
+  ]
+});
+
+</script>
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+<!-- acheivement charts and tables for player chosen in player.html -->
+{% block title %}
+    Player index
+{% endblock %}
+
+{% block main %}
+
+  <H1>Badges {{ stats[0]["name"] }} Has Earned So Far This Week</H1>
+
+<br>
+    <div id="donut1" style ="float:left; width: 25%;"></div>
+    <div id="donut2" style ="float:left; width: 25%;"></div>
+    <div id="donut3" style ="float:left; width: 25%;"></div>
+    <div id="donutthrow" style ="float:left; width: 25%;"></div>
+
+    <br>
+
+  <H1>{{ stats[0]["name"] }}'s Week Stats</H1>
+
+<br>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>WO 1</th>
+                <th>WO 2</th>
+                <th>WO 3</th>
+                <th>Throws</th>
+                <th>Play</th>
+                <th>Cardio</th>
+                <th>Roll</th>
+                <th>PushUp</th>
+                <th>Abs</th>
+                <th>Arms</th>
+                <th>Squats</th>
+                <th>Leg</th>
+                <th>SLDL</th>
+                <th>PullUp</th>
+                <th>Jump</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for weekstat in weekstats %}
+                <tr>
+                    <td>{{ weekstat.name }}</td>
+                    <td>{{ weekstat.w1 }}</td>
+                    <td>{{ weekstat.w2 }}</td>
+                    <td>{{ weekstat.w3 }}</td>
+                    <td>{{ weekstat.throw }}</td>
+                    <td>{{ weekstat.play }}</td>
+                    <td>{{ weekstat.cardio }}</td>
+                    <td>{{ weekstat.roll }}</td>
+                    <td>{{ weekstat.pushups }}</td>
+                    <td>{{ weekstat.abs }}</td>
+                    <td>{{ weekstat.arms }}</td>
+                    <td>{{ weekstat.squats }}</td>
+                    <td>{{ weekstat.resistanceleg }}</td>
+                    <td>{{ weekstat.sldl }}</td>
+                    <td>{{ weekstat.pullup }}</td>
+                    <td>{{ weekstat.jump }}</td>
+
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <br>
+
+  <H1>{{ stats[0]["name"] }}'s All Time Stats</H1>
+
+<br>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>WO 1</th>
+                <th>WO 2</th>
+                <th>WO 3</th>
+                <th>Throws</th>
+                <th>Play</th>
+                <th>Cardio</th>
+                <th>Roll</th>
+                <th>PushUp</th>
+                <th>Abs</th>
+                <th>Arms</th>
+                <th>Squats</th>
+                <th>Leg</th>
+                <th>SLDL</th>
+                <th>PullUp</th>
+                <th>Jump</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in stats %}
+                <tr>
+                    <td>{{ stat.name }}</td>
+                    <td>{{ stat.w1 }}</td>
+                    <td>{{ stat.w2 }}</td>
+                    <td>{{ stat.w3 }}</td>
+                    <td>{{ stat.throw }}</td>
+                    <td>{{ stat.play }}</td>
+                    <td>{{ stat.cardio }}</td>
+                    <td>{{ stat.roll }}</td>
+                    <td>{{ stat.pushups }}</td>
+                    <td>{{ stat.abs }}</td>
+                    <td>{{ stat.arms }}</td>
+                    <td>{{ stat.squats }}</td>
+                    <td>{{ stat.resistanceleg }}</td>
+                    <td>{{ stat.sldl }}</td>
+                    <td>{{ stat.pullup }}</td>
+                    <td>{{ stat.jump }}</td>
+
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+<script>
+Morris.Donut({
+  element: 'donut1',
+  data: [
+    {label: "Did Workout 1: Lift", value: '{{ weekstats[0]["w1"] }}' },
+  ],
+  colors: [
+    '#DA70D6',
+    '#DDA0DD',
+  ]
+});
+Morris.Donut({
+  element: 'donut2',
+  data: [
+    {label: "Did Workout 2: Intervals", value: '{{ weekstats[0]["w2"] }}' },
+  ],
+  colors: [
+    '#4169E1',
+    '#AFEEEE',
+  ]
+});
+Morris.Donut({
+  element: 'donut3',
+  data: [
+    {label: "Did Workout 3: Core", value: '{{ weekstats[0]["w3"] }}' },
+  ],
+  colors: [
+    '#FA8072',
+    '#FFA07A',
+  ]
+});
+Morris.Donut({
+  element: 'donutthrow',
+  data: [
+    {label: "Tosses this week", value: '{{ weekstats[0]["throw"] }}' },
+  ],
+  colors: [
+    '#0BA462',
+    '#39B580',
+  ]
+});
+
+</script>
+{% endblock %}

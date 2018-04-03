@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log your own workout
+{% endblock %}
+
+{% block main %}
+    <form action="/logother" method="post" align="left">
+      <div class="form-group ">
+      <label class="control-label " for="person">
+       Pick a player
+      </label>
+      <select class="select form-control" id="person" name="person">
+       </option>
+       {% for player in players %}
+        <option value="{{ player.name }}">
+        {{ player.name }}
+       </option>
+       {% endfor %}
+      </select>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="play">
+       Playing Ultimate! (minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="play" placeholder="play" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="cardio">
+       Any type of cardio (jogging, other sports, jumping jacks) (minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="cardio" placeholder="cardio" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="roll">
+       Stretching, rolling, or yoga (minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="roll" placeholder="roll" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="pushups">
+       Push ups (feet or knees) (count)
+      </label>
+      <input autocomplete="off" class="form-control" name="pushups" placeholder="pushups" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="abs">
+       Abs! (Minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="abs" placeholder="abs" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="arms">
+       Arms with weights (minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="arms" placeholder="arms" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="squats">
+       Squats (count)
+      </label>
+      <input autocomplete="off" class="form-control" name="squats" placeholder="squats" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="resistanceleg">
+       Resistance band legs (minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="resistanceleg" placeholder="resistanceleg" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="sldl">
+       Single leg deadlifts (count)
+      </label>
+      <input autocomplete="off" class="form-control" name="sldl" placeholder="sldl" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="pullup">
+       Pull ups or negative pull ups (count)
+      </label>
+      <input autocomplete="off" class="form-control" name="pullup" placeholder="pullup" type="number"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="jump">
+       Plyometric and jump exercises (i.e. burpies or box jumps) (minutes)
+      </label>
+      <input autocomplete="off" class="form-control" name="jump" placeholder="jump" type="number"/>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary " name="submit" type="submit">
+        Submit
+       </button>
+      </div>
+     </div>
+    </form>
+{% endblock %}
